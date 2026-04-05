@@ -22,22 +22,22 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--edge-bg);
   background:
     radial-gradient(circle at top left, rgba(135, 174, 126, 0.18), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.16), transparent 24%),
-    linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%);
+    linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%),
+    #303135;
 }
 
 body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   color: var(--text);
-  background-color: var(--edge-bg);
   background:
     radial-gradient(circle at top left, rgba(135, 174, 126, 0.18), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.16), transparent 24%),
-    linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%);
+    linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%),
+    #303135;
   line-height: 1.6;
 }
 
@@ -1166,14 +1166,16 @@ p {
     background:
       radial-gradient(circle at top left, rgba(72, 125, 47, 0.18), transparent 28%),
       radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.12), transparent 24%),
-      linear-gradient(180deg, #121913 0%, #0d120e 100%);
+      linear-gradient(180deg, #121913 0%, #0d120e 100%),
+      #303135;
   }
 
   html {
     background:
       radial-gradient(circle at top left, rgba(72, 125, 47, 0.18), transparent 28%),
       radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.12), transparent 24%),
-      linear-gradient(180deg, #121913 0%, #0d120e 100%);
+      linear-gradient(180deg, #121913 0%, #0d120e 100%),
+      #303135;
   }
 
   .site-header {
