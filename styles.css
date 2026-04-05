@@ -31,6 +31,8 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   font-family: "Manrope", sans-serif;
   color: var(--text);
   background:
@@ -39,6 +41,14 @@ body {
     linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%),
     #303135;
   line-height: 1.6;
+  overscroll-behavior-y: none;
+}
+
+.page-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: inherit;
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 img {
@@ -1163,6 +1173,8 @@ p {
   }
 
   body {
+    min-height: 100vh;
+    min-height: 100dvh;
     background:
       radial-gradient(circle at top left, rgba(72, 125, 47, 0.18), transparent 28%),
       radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.12), transparent 24%),
