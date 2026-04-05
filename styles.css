@@ -640,6 +640,19 @@ p {
   box-shadow: 0 0 0 4px rgba(53, 92, 61, 0.08);
 }
 
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill,
+.contact-form textarea:-webkit-autofill:hover,
+.contact-form textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: 0 0 0 1000px rgba(21, 29, 22, 0.92) inset;
+  box-shadow: 0 0 0 1000px rgba(21, 29, 22, 0.92) inset;
+  border: 1px solid rgba(72, 125, 47, 0.18);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 .form-note.success {
   color: var(--primary);
   font-weight: 700;
@@ -682,6 +695,12 @@ p {
 
 .footer-inner p {
   margin-top: 0.35rem;
+}
+
+.copyright {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  opacity: 0.82;
 }
 
 .reveal {
