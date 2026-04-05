@@ -826,28 +826,32 @@ p {
   }
 
   .hero-visual {
-    min-height: 340px;
-    margin-top: 0.5rem;
+    min-height: auto;
+    margin-top: 0.75rem;
+    display: grid;
+    gap: 0.9rem;
   }
 
   .hero-card-main {
-    inset: 0 0 14% 0;
+    position: relative;
+    inset: auto;
+    min-height: 300px;
   }
 
   .hero-card-accent {
-    width: 46%;
-    height: 28%;
-    border-width: 6px;
+    display: none;
   }
 
   .hero-badge {
-    left: 0.85rem;
-    right: 0.85rem;
-    bottom: 0;
-    padding: 0.85rem 0.95rem;
-    max-width: none;
-    width: auto;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0;
+    padding: 0.95rem 1rem;
+    width: 100%;
     border-radius: 20px;
+    box-shadow: 0 16px 30px rgba(31, 53, 38, 0.14);
   }
 
   .contact-form,
@@ -1006,17 +1010,15 @@ p {
   }
 
   .hero-visual {
-    min-height: 300px;
+    gap: 0.75rem;
   }
 
-  .hero-card-accent {
-    display: none;
+  .hero-card-main {
+    min-height: 250px;
   }
 
   .hero-badge {
-    left: 0.75rem;
-    right: 0.75rem;
-    max-width: none;
+    padding: 0.85rem 0.9rem;
     font-size: 0.9rem;
     border-radius: 18px;
   }
@@ -1074,11 +1076,7 @@ p {
   }
 
   .hero-badge {
-    left: 0.6rem;
-    right: 0.6rem;
-    max-width: none;
-    bottom: 0.35rem;
-    padding: 0.8rem 0.9rem;
+    padding: 0.8rem 0.85rem;
     border-radius: 16px;
   }
 
