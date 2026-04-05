@@ -3,6 +3,7 @@
   --surface: rgba(255, 255, 255, 0.78);
   --text: #1f3526;
   --muted: #5d6f5f;
+  --edge-bg: #303135;
   --line: rgba(72, 125, 47, 0.14);
   --primary: #487d2f;
   --primary-deep: #31571f;
@@ -21,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--edge-bg);
   background:
     radial-gradient(circle at top left, rgba(135, 174, 126, 0.18), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.16), transparent 24%),
@@ -31,6 +33,7 @@ body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   color: var(--text);
+  background-color: var(--edge-bg);
   background:
     radial-gradient(circle at top left, rgba(135, 174, 126, 0.18), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.16), transparent 24%),
