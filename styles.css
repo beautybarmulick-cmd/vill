@@ -3,7 +3,7 @@
   --surface: rgba(255, 255, 255, 0.78);
   --text: #1f3526;
   --muted: #5d6f5f;
-  --edge-bg: #303135;
+  --edge-bg: #0d120e;
   --line: rgba(72, 125, 47, 0.14);
   --primary: #487d2f;
   --primary-deep: #31571f;
@@ -26,7 +26,7 @@ html {
     radial-gradient(circle at top left, rgba(135, 174, 126, 0.18), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.16), transparent 24%),
     linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%),
-    #303135;
+    #0d120e;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
     radial-gradient(circle at top left, rgba(135, 174, 126, 0.18), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.16), transparent 24%),
     linear-gradient(180deg, #fbf8f2 0%, #f2eee5 100%),
-    #303135;
+    #0d120e;
   line-height: 1.6;
   overscroll-behavior-y: none;
 }
@@ -1179,7 +1179,7 @@ p {
       radial-gradient(circle at top left, rgba(72, 125, 47, 0.18), transparent 28%),
       radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.12), transparent 24%),
       linear-gradient(180deg, #121913 0%, #0d120e 100%),
-      #303135;
+      #0d120e;
   }
 
   html {
@@ -1187,7 +1187,7 @@ p {
       radial-gradient(circle at top left, rgba(72, 125, 47, 0.18), transparent 28%),
       radial-gradient(circle at 85% 10%, rgba(180, 133, 83, 0.12), transparent 24%),
       linear-gradient(180deg, #121913 0%, #0d120e 100%),
-      #303135;
+      #0d120e;
   }
 
   .site-header {
