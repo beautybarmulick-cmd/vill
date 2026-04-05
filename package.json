@@ -1,0 +1,10 @@
+{
+  "name": "vill-farm-fresh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js website for Vill Farm Fresh",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
