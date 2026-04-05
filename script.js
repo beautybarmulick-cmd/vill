@@ -6,6 +6,7 @@ const contactForm = document.getElementById("contactForm");
 const formNote = document.getElementById("formNote");
 const backToTop = document.getElementById("backToTop");
 const siteHeader = document.querySelector(".site-header");
+const phoneInput = document.getElementById("phoneInput");
 let lastScrollY = window.scrollY;
 
 if (navToggle && siteNav) {
@@ -81,6 +82,12 @@ if (contactForm && formNote) {
     formNote.classList.remove("success", "error");
     formNote.textContent = "Sending your inquiry...";
 
+    if (payload.phone && !/^\+91\s\d{10}$/.test(payload.phone)) {
+      formNote.textContent = "Please enter a valid Indian mobile number in the format +91 followed by 10 digits.";
+      formNote.classList.add("error");
+      return;
+    }
+
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "Sending...";
@@ -115,5 +122,57 @@ if (contactForm && formNote) {
         submitButton.textContent = "Submit Inquiry";
       }
     }
+  });
+}
+
+if (phoneInput) {
+  const phonePrefix = "+91 ";
+
+  const normalizePhoneValue = (rawValue) => {
+    const digits = rawValue.replace(/\D/g, "").replace(/^91/, "").slice(0, 10);
+    return `${phonePrefix}${digits}`;
+  };
+
+  if (!phoneInput.value.startsWith(phonePrefix)) {
+    phoneInput.value = phonePrefix;
+  }
+
+  phoneInput.addEventListener("focus", () => {
+    if (!phoneInput.value.startsWith(phonePrefix)) {
+      phoneInput.value = phonePrefix;
+    }
+  });
+
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = normalizePhoneValue(phoneInput.value);
+  });
+
+  phoneInput.addEventListener("keydown", (event) => {
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "Tab",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End"
+    ];
+
+    if (allowedKeys.includes(event.key)) {
+      if ((event.key === "Backspace" || event.key === "Delete") && phoneInput.selectionStart <= phonePrefix.length) {
+        event.preventDefault();
+      }
+      return;
+    }
+
+    if (!/^\d$/.test(event.key)) {
+      event.preventDefault();
+    }
+  });
+
+  phoneInput.addEventListener("paste", (event) => {
+    event.preventDefault();
+    const pastedText = event.clipboardData?.getData("text") || "";
+    phoneInput.value = normalizePhoneValue(pastedText);
   });
 }

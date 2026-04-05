@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -190,7 +190,7 @@
               <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=800&q=80" alt="Seasonal vegetable harvest">
               <div class="product-copy">
                 <h3>Seasonal</h3>
-                <p>Rotating harvest picks selected around the season’s peak freshness and local farm availability.</p>
+                <p>Rotating harvest picks selected around the seasonâ€™s peak freshness and local farm availability.</p>
               </div>
             </article>
             <article class="product-card reveal">
@@ -303,7 +303,7 @@
               </label>
               <label>
                 <span>Phone</span>
-                <input type="tel" name="phone" placeholder="+91 98765 43210">
+                <input type="tel" name="phone" id="phoneInput" placeholder="+91 9876543210" inputmode="numeric" maxlength="14" pattern="\+91\s\d{10}" value="+91 ">
               </label>
               <label>
                 <span>Message</span>
@@ -329,12 +329,14 @@
         <div>
           <img class="footer-logo" src="assets/logo-vill-farm-fresh.svg?v=3" alt="Vill Farm Fresh logo">
           <p>Premium vegetables rooted in freshness, trust, and local farmer partnerships.</p>
+          <p class="copyright">Copyright &copy; 2026 Vill Farm Fresh. All rights reserved.</p>
         </div>
         <a href="#top" id="backToTop">Back to top</a>
       </div>
     </footer>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
+
+
