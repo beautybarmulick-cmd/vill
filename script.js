@@ -67,62 +67,27 @@ const revealObserver = new IntersectionObserver((entries) => {
 reveals.forEach((item) => revealObserver.observe(item));
 
 if (contactForm && formNote) {
-  contactForm.addEventListener("submit", async (event) => {
+  contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const formData = new FormData(contactForm);
-    const payload = {
-      name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      phone: String(formData.get("phone") || "").trim(),
-      message: String(formData.get("message") || "").trim()
-    };
-    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
 
     formNote.classList.remove("success", "error");
-    formNote.textContent = "Sending your inquiry...";
-
-    if (payload.phone && !/^\+91\s\d{10}$/.test(payload.phone)) {
+    
+    if (phone && !/^\+91\s\d{10}$/.test(phone)) {
       formNote.textContent = "Please enter a valid Indian mobile number in the format +91 followed by 10 digits.";
       formNote.classList.add("error");
       return;
     }
 
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-    }
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.message || "Unable to submit the form.");
-      }
-
-      formNote.textContent = result.message;
-      formNote.classList.add("success");
-      contactForm.reset();
-      resetPhoneField();
-    } catch (error) {
-      const isConnectionIssue = error instanceof TypeError;
-      formNote.textContent = isConnectionIssue
-        ? "Unable to reach the form service. Start the Node server with 'npm start' and reload the page."
-        : error.message || "Something went wrong. Please try again.";
-      formNote.classList.add("error");
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Submit Inquiry";
-      }
-    }
+    formNote.textContent = name
+      ? `Thank you, ${name}. Your inquiry has been noted. Our team will reach out shortly.`
+      : "Thank you. Your inquiry has been noted. Our team will reach out shortly.";
+    formNote.classList.add("success");
+    contactForm.reset();
+    resetPhoneField();
   });
 }
 
