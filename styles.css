@@ -461,6 +461,19 @@ p {
 .trust-card {
   padding: 1.6rem;
   border-radius: 24px;
+  transform: translateY(0) scale(1);
+  will-change: transform;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 360ms ease, border-color 360ms ease, background-color 360ms ease;
+  transform-origin: center;
+}
+
+.info-card:hover,
+.info-card:focus-within,
+.trust-card:hover,
+.trust-card:focus-within {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 30px 58px rgba(0, 0, 0, 0.22);
+  border-color: rgba(72, 125, 47, 0.28);
 }
 
 .icon-wrap {
@@ -472,12 +485,28 @@ p {
   margin-bottom: 1rem;
   border-radius: 18px;
   background: linear-gradient(145deg, rgba(53, 92, 61, 0.12), rgba(180, 133, 83, 0.16));
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), background 360ms ease;
 }
 
 .icon-wrap svg {
   width: 26px;
   height: 26px;
   fill: var(--primary);
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.info-card:hover .icon-wrap,
+.info-card:focus-within .icon-wrap,
+.trust-card:hover .icon-wrap,
+.trust-card:focus-within .icon-wrap {
+  transform: scale(1.08);
+}
+
+.info-card:hover .icon-wrap svg,
+.info-card:focus-within .icon-wrap svg,
+.trust-card:hover .icon-wrap svg,
+.trust-card:focus-within .icon-wrap svg {
+  transform: scale(1.08);
 }
 
 .product-grid {

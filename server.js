@@ -128,6 +128,14 @@ function validateSubmission(payload) {
     return { valid: false, message: "Please enter a valid email address." };
   }
 
+  if (phone) {
+    const phonePattern = /^\+91\s\d{10}$/;
+
+    if (!phonePattern.test(phone)) {
+      return { valid: false, message: "Please enter a valid Indian mobile number in the format +91 followed by 10 digits." };
+    }
+  }
+
   return {
     valid: true,
     submission: {

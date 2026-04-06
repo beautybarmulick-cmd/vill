@@ -110,6 +110,7 @@ if (contactForm && formNote) {
       formNote.textContent = result.message;
       formNote.classList.add("success");
       contactForm.reset();
+      resetPhoneField();
     } catch (error) {
       const isConnectionIssue = error instanceof TypeError;
       formNote.textContent = isConnectionIssue
@@ -175,4 +176,10 @@ if (phoneInput) {
     const pastedText = event.clipboardData?.getData("text") || "";
     phoneInput.value = normalizePhoneValue(pastedText);
   });
+}
+
+function resetPhoneField() {
+  if (phoneInput) {
+    phoneInput.value = "+91 ";
+  }
 }
