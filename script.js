@@ -9,9 +9,19 @@ const siteHeader = document.querySelector(".site-header");
 const phoneInput = document.getElementById("phoneInput");
 let lastScrollY = window.scrollY;
 
+function closeMobileNav() {
+  siteNav?.classList.remove("is-open");
+  navToggle?.classList.remove("is-open");
+  document.body.classList.remove("nav-open");
+  navToggle?.setAttribute("aria-expanded", "false");
+}
+
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+    siteHeader?.classList.remove("is-hidden");
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
@@ -19,10 +29,18 @@ if (navToggle && siteNav) {
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     if (siteNav?.classList.contains("is-open")) {
-      siteNav.classList.remove("is-open");
-      navToggle?.setAttribute("aria-expanded", "false");
+      closeMobileNav();
     }
   });
+});
+
+document.addEventListener("click", (event) => {
+  const clickedOutsideNav = !siteNav?.contains(event.target);
+  const clickedOutsideToggle = !navToggle?.contains(event.target);
+
+  if (document.body.classList.contains("nav-open") && clickedOutsideNav && clickedOutsideToggle) {
+    closeMobileNav();
+  }
 });
 
 if (backToTop) {
@@ -45,7 +63,9 @@ if (siteHeader) {
     }
 
     if (scrollingDown && pastHeader) {
-      siteHeader.classList.add("is-hidden");
+      if (!document.body.classList.contains("nav-open")) {
+        siteHeader.classList.add("is-hidden");
+      }
     } else {
       siteHeader.classList.remove("is-hidden");
     }
