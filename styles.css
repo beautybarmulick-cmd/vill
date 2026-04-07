@@ -817,6 +817,7 @@ p {
   }
 
   .header-inner {
+    position: relative;
     flex-wrap: wrap;
     min-height: 78px;
     padding: 0.65rem 0;
@@ -836,28 +837,26 @@ p {
   }
 
   .site-nav {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: calc(100% + 0.7rem);
     left: 0;
-    bottom: 0;
     z-index: 30;
     display: flex;
-    width: min(78vw, 320px);
-    min-height: 100vh;
-    min-height: 100dvh;
+    width: min(82vw, 320px);
+    min-height: auto;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0.55rem;
-    padding: 7.25rem 1.25rem 2rem;
+    padding: 1rem;
     background:
       linear-gradient(180deg, rgba(20, 34, 20, 0.98), rgba(10, 18, 11, 0.98)),
       rgba(15, 24, 15, 0.98);
-    border-right: 1px solid rgba(151, 196, 129, 0.12);
-    border-radius: 0 30px 30px 0;
-    box-shadow: 28px 0 70px rgba(0, 0, 0, 0.34);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(151, 196, 129, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
     transform: translateX(-105%);
     opacity: 0;
     pointer-events: none;
@@ -1128,8 +1127,8 @@ p {
 
   .site-nav {
     gap: 0.35rem;
-    width: min(82vw, 300px);
-    padding: 6.25rem 1.35rem 2rem;
+    width: min(84vw, 300px);
+    padding: 0.85rem;
   }
 
   .site-nav a {
