@@ -53,7 +53,7 @@ if (siteHeader) {
       return;
     }
 
-    if (scrollingDown && pastHeader) {
+    if (scrollingDown && pastHeader && !document.body.classList.contains("nav-open")) {
       siteHeader.classList.add("is-hidden");
     } else {
       siteHeader.classList.remove("is-hidden");

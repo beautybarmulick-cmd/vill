@@ -157,6 +157,12 @@ p {
   visibility: hidden;
 }
 
+body.nav-open .site-header {
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -844,7 +850,7 @@ p {
     top: 78px;
     left: 0;
     bottom: 0;
-    z-index: 45;
+    z-index: 999;
     display: flex;
     width: min(78vw, 320px);
     flex-direction: column;
@@ -868,6 +874,10 @@ p {
     transform: translateX(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  body.nav-open {
+    overflow-x: hidden;
   }
 
   .site-nav a {
