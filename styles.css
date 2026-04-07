@@ -840,32 +840,34 @@ p {
     position: absolute;
     top: calc(100% + 0.7rem);
     left: 0;
+    right: 0;
     z-index: 30;
     display: flex;
-    width: min(82vw, 320px);
+    width: 100%;
     min-height: auto;
-    max-height: calc(100vh - 110px);
+    max-height: 0;
     overflow-y: auto;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0.55rem;
-    padding: 1rem;
+    padding: 0 1rem;
     background:
       linear-gradient(180deg, rgba(20, 34, 20, 0.98), rgba(10, 18, 11, 0.98)),
       rgba(15, 24, 15, 0.98);
     border: 1px solid rgba(151, 196, 129, 0.12);
     border-radius: 24px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
-    transform: translateX(-105%);
     opacity: 0;
     pointer-events: none;
-    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease;
+    transform: none;
+    transition: max-height 260ms ease, opacity 220ms ease, padding 220ms ease;
   }
 
   .site-nav.is-open {
-    transform: translateX(0);
+    max-height: 440px;
     opacity: 1;
+    padding: 1rem;
     pointer-events: auto;
   }
 
@@ -873,42 +875,13 @@ p {
     width: 100%;
     padding: 0.95rem 1rem;
     border-radius: 16px;
-    transform: translateX(-10px);
-    opacity: 0;
-    transition: color 180ms ease, background 180ms ease, transform 260ms ease, opacity 260ms ease;
+    transform: none;
+    opacity: 1;
+    transition: color 180ms ease, background 180ms ease;
   }
 
   .site-nav a::after {
     display: none;
-  }
-
-  .site-nav.is-open a {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .site-nav.is-open a:nth-child(1) {
-    transition-delay: 40ms;
-  }
-
-  .site-nav.is-open a:nth-child(2) {
-    transition-delay: 75ms;
-  }
-
-  .site-nav.is-open a:nth-child(3) {
-    transition-delay: 110ms;
-  }
-
-  .site-nav.is-open a:nth-child(4) {
-    transition-delay: 145ms;
-  }
-
-  .site-nav.is-open a:nth-child(5) {
-    transition-delay: 180ms;
-  }
-
-  .site-nav.is-open a:nth-child(6) {
-    transition-delay: 215ms;
   }
 
   .site-nav a:hover,
@@ -1127,7 +1100,11 @@ p {
 
   .site-nav {
     gap: 0.35rem;
-    width: min(84vw, 300px);
+    width: 100%;
+    padding: 0 0.85rem;
+  }
+
+  .site-nav.is-open {
     padding: 0.85rem;
   }
 
