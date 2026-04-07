@@ -9,6 +9,24 @@ const siteHeader = document.querySelector(".site-header");
 const phoneInput = document.getElementById("phoneInput");
 let lastScrollY = window.scrollY;
 
+function getScrollTargetTop(target) {
+  if (!target || target.id === "top" || target.id === "home") {
+    return 0;
+  }
+
+  const headerOffset = siteHeader ? siteHeader.offsetHeight + 18 : 96;
+  return Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset);
+}
+
+function smoothScrollToTarget(target) {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  window.scrollTo({
+    top: getScrollTargetTop(target),
+    behavior: prefersReducedMotion ? "auto" : "smooth"
+  });
+}
+
 function closeMobileNav() {
   siteNav?.classList.remove("is-open");
   navToggle?.classList.remove("is-open");
@@ -50,9 +68,45 @@ document.addEventListener("click", (event) => {
 if (backToTop) {
   backToTop.addEventListener("click", (event) => {
     event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    smoothScrollToTarget(document.getElementById("top"));
   });
 }
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  if (link === backToTop) {
+    return;
+  }
+
+  link.addEventListener("click", (event) => {
+    const hash = link.getAttribute("href");
+
+    if (!hash || hash === "#") {
+      return;
+    }
+
+    let targetId = "";
+
+    try {
+      targetId = decodeURIComponent(hash.slice(1));
+    } catch {
+      return;
+    }
+
+    const target = document.getElementById(targetId);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (siteNav?.classList.contains("is-open")) {
+      closeMobileNav();
+    }
+
+    smoothScrollToTarget(target);
+  });
+});
 
 if (siteHeader) {
   window.addEventListener("scroll", () => {
@@ -84,7 +138,7 @@ const revealObserver = new IntersectionObserver((entries) => {
       entry.target.classList.remove("is-visible");
     }
   });
-}, { threshold: 0.18 });
+}, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
 
 reveals.forEach((item) => revealObserver.observe(item));
 
