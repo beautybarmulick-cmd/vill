@@ -807,9 +807,9 @@ p {
   }
 
   .site-header {
-    background: rgba(15, 24, 15, 0.94);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: #0f180f;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .section {
@@ -842,10 +842,10 @@ p {
     left: 0;
     right: 0;
     z-index: 30;
-    display: flex;
+    display: none;
     width: 100%;
     min-height: auto;
-    max-height: 0;
+    max-height: none;
     overflow-y: auto;
     flex-direction: column;
     align-items: flex-start;
@@ -858,15 +858,14 @@ p {
     border: 1px solid rgba(151, 196, 129, 0.12);
     border-radius: 24px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     transform: none;
-    transition: max-height 260ms ease, opacity 220ms ease, padding 220ms ease;
+    transition: none;
   }
 
   .site-nav.is-open {
-    max-height: 440px;
-    opacity: 1;
+    display: flex;
     padding: 1rem;
     pointer-events: auto;
   }
@@ -1079,7 +1078,7 @@ p {
 
 @media (max-width: 560px) {
   .site-header {
-    background: rgba(15, 24, 15, 0.97);
+    background: #0f180f;
   }
 
   .section {
