@@ -12,7 +12,6 @@ let lastScrollY = window.scrollY;
 function closeMobileNav() {
   siteNav?.classList.remove("is-open");
   navToggle?.classList.remove("is-open");
-  document.body.classList.remove("nav-open");
   navToggle?.setAttribute("aria-expanded", "false");
 }
 
@@ -20,7 +19,6 @@ if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
     navToggle.classList.toggle("is-open", isOpen);
-    document.body.classList.toggle("nav-open", isOpen);
     siteHeader?.classList.remove("is-hidden");
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
@@ -54,9 +52,7 @@ if (siteHeader) {
     }
 
     if (scrollingDown && pastHeader) {
-      if (!document.body.classList.contains("nav-open")) {
-        siteHeader.classList.add("is-hidden");
-      }
+      siteHeader.classList.add("is-hidden");
     } else {
       siteHeader.classList.remove("is-hidden");
     }
