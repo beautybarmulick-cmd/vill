@@ -34,6 +34,19 @@ navLinks.forEach((link) => {
   });
 });
 
+document.addEventListener("click", (event) => {
+  if (!document.body.classList.contains("nav-open")) {
+    return;
+  }
+
+  const clickedInsideNav = siteNav?.contains(event.target);
+  const clickedToggle = navToggle?.contains(event.target);
+
+  if (!clickedInsideNav && !clickedToggle) {
+    closeMobileNav();
+  }
+});
+
 if (backToTop) {
   backToTop.addEventListener("click", (event) => {
     event.preventDefault();
